@@ -2,6 +2,5 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MeasurementController;
 
-Route::get('/',  'MeasurementController@index');
-
-Route::resource('measurement', 'MeasurementController');
+Route::resource('Measurement', MeasurementController::class);
+Route::delete('/measurements/{measurement}', [MeasurementController::class, 'destroy'])->name('measurement.destroy');

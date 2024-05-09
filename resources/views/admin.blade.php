@@ -21,6 +21,14 @@
                     <td>{{ $measurement->lake }}</td>
                     <td>{{ $measurement->description }}</td>
                     <td>{{ $measurement->temperature }}</td>
+                    <td>
+                        <form action="{{ route('measurement.destroy', $measurement->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <!-- Ďalšie prvky formulára -->
+                            <button type="submit">Odstrániť</button>
+                        </form>
+                    </td>
                 </tr>
 
             @empty

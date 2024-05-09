@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Measurement;
-use App\Http\Controllers\Controller;
+use Exception;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Validation\ValidationException;
 
 class MeasurementController extends Controller
 {
@@ -16,7 +14,7 @@ class MeasurementController extends Controller
      */
     public function index()
     {
-        return view('measurement.index')
+        return view('index')
             ->with('measurement', Measurement::all());
     }
 
@@ -25,7 +23,7 @@ class MeasurementController extends Controller
      */
     public function create()
     {
-        return \view('measurement.create')
+        return \view('create')
             ->with('measurement', Measurement::all());
     }
 
@@ -34,23 +32,26 @@ class MeasurementController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $this->validate($request, [
-            'lake' => ['required', 'min:3', 'max:50'],
-            'description' => ['required', 'min:25', 'max:250'],
-            'temperature' => ['required'],
+
+        $request->validate([
+            'lake' => 'required|string|max:255',
+            'description' => 'required|string',
+            'temperature' => 'required|numeric',
         ]);
 
-       Measurement::create($request->all());
+        $data = request()->except(['_token']);
+        Measurement::create($data);
 
-        return redirect()->route('/');
+        return redirect()->route('Measurement.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(): void
+    public function show(Measurement $measurement)
     {
-       $this->index();
+        return view('admin')
+            ->with('measurement', Measurement::all());
     }
 
     /**
@@ -58,8 +59,7 @@ class MeasurementController extends Controller
      */
     public function edit(Measurement $measurement)
     {
-
-        return \view('measurement.edit')
+        return view('edit')
             ->with('measurements', Measurement::all())
             ->with('measurement', $measurement);
     }
@@ -69,10 +69,10 @@ class MeasurementController extends Controller
      */
     public function update(Request $request, $id): RedirectResponse
     {
-        $this->validate($request, [
-            'lake' => ['required', 'min:3', 'max:50'],
-            'description' => ['required', 'min:25', 'max:250'],
-            'temperature' => ['required'],
+        $request->validate([
+            'lake' => 'required|string|max:255',
+            'description' => 'required|string',
+            'temperature' => 'required|numeric',
         ]);
 
         $measurement = Measurement::findOrFail($id);
@@ -88,11 +88,10 @@ class MeasurementController extends Controller
     {
         try {
             $measurement->delete();
-        } catch (\Exception  $exception) {
+        } catch (Exception $exception) {
             return redirect()->back()->withErrors(['Pri procesu odstranenia záznamu merania došlo k chybe!']);
         }
 
-        return redirect()->route('/');
+        return redirect()->route('Measurement.index');
     }
-
 }

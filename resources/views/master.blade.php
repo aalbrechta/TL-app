@@ -1,30 +1,29 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <title>@yield('title' )</title>
 
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{asset('resources/css/app.css')}}">
 
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{asset('resources/js/contact.js')}}"></script>
+
 </head>
 <body>
-<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+<div>
+    <header>
+        <img src="{{ asset('images/lake.png') }}" alt="icon" style="width: 60px; height: 70px;">
+        <h4> Záznamy merania teplôt jazier</h4>
 
-    <nav class="my-2 my-md-0 mr-md-3">
-        <a class="p-2 text-dark" href="#">Hlavní stránka</a>
-        <a class="p-2 text-dark" href="#">Seznam článků</a>
-        <a class="p-2 text-dark" href="#">Kontakt</a>
-    </nav>
-</div>
+        <a href="{{ route('Measurement.create') }}">Pridať záznam</a>
+        <a href="{{ route('Measurement.show') }}">Admin</a>
+    </header>
 
-<div class="container">
     @if ($errors->any())
-        <div class="alert alert-danger mb-4">
-            <ul class="mb-0">
+        <div>
+            <ul >
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
                 @endforeach
@@ -33,15 +32,51 @@
     @endif
 
     @yield('content')
-
-    <footer class="pt-4 my-md-5 border-top">
-        <p>
-            Ukázkový tutoriál pro jednoduchý redakční systém v Laravel frameworku z programátorské sociální sítě
-
-        </p>
-    </footer>
 </div>
 
-@stack('scripts')
+<footer>
+    <p >
+        Ukážkový a jednoduchý systém záznamu meraní v Laravel frameworku.
+    </p>
+</footer>
+
+<style>
+    table {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    /* Formátovanie pre hlavičku tabuľky */
+    th {
+        background-color: #9c5252;
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    /* Formátovanie pre riadky tabuľky */
+    td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    /* Párové riadky tabuľky môžete zvýrazniť */
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    footer {
+        background-color: #f0f0f0;
+        color: #333;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        padding: 10px;
+        font-style: italic;
+        font-align: center;
+    }
+
+</style>
 </body>
 </html>
