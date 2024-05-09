@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Measurement;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class MeasurementController extends Controller
 {
@@ -13,7 +14,10 @@ class MeasurementController extends Controller
      */
     public function index()
     {
-        //
+        $measurement = Measurement::all();
+
+        return \view('index')
+            ->with('measurement', $measurement);
     }
 
     /**
@@ -35,9 +39,9 @@ class MeasurementController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Measurement $measurement)
+    public function show(Measurement $measurement): View
     {
-        //
+        return \view('measurement.show', ['measurement' => $measurement]);
     }
 
     /**
