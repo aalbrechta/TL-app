@@ -1,10 +1,8 @@
-
-/* Všeobecné formátovanie pre tabuľku */
 table {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Nastaví výšku na celú obrazovku */
+
 }
 
 /* Formátovanie pre hlavičku tabuľky */
@@ -26,11 +24,115 @@ tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-.footer {
+footer {
     background-color: #f0f0f0;
     color: #333;
     font-family: Arial, sans-serif;
     font-size: 16px;
     padding: 10px;
     font-style: italic;
+    font-align: center;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+/* Hlavička formulára */
+.form-header {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+    text-align: center;
+}
+
+/* Sekcia formulára */
+.form-section {
+    margin-bottom: 20px;
+}
+
+/* Skupina formulára */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Popis pre vstupné pole */
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-size: 16px;
+}
+
+/* Vstupné pole */
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Tlačidlo odoslať */
+.btn-primary {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Tlačidlo odoslať pri hoveri */
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+.logo {
+    width: 60px;
+    height: 70px;
+}
+
+.title {
+    margin: 0;
+    font-size: 24px;
+}
+
+.link {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+}
+
+.link:hover {
+    color: #007bff;
+}
+
+.notification {
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }

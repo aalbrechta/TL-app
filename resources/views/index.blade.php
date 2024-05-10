@@ -4,6 +4,11 @@
 
 @section('content')
 
+    <div id="notification" style="display: none;">
+        <span id="messageContainer"></span>
+        <span id="closeButton">&times;</span>
+    </div>
+
     <div >
         <table>
             <thead>

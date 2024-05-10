@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('title', "Hlavná stránka")
+@section('title', "Admin")
 
 @section('content')
 
@@ -22,16 +22,17 @@
                     <td>{{ $measurement->description }}</td>
                     <td>{{ $measurement->temperature }}</td>
                     <td>
-                        <form action="{{ route('measurement.destroy', $measurement->id) }}" method="POST">
+                        <form  action="{{ route('measurement.destroy', $measurement->id) }}" method="POST" class="del-btn">
                             @csrf
                             @method('DELETE')
-                            <button type="submit">Odstrániť</button>
+                            <button type="submit" onclick="confirmDelete()">Odstrániť</button>
                         </form>
                     </td>
                     <td>
-                        <a href="{{ route('measurement.edit', $measurement->id) }}">
+                        <a class="link-edit" href="{{ route('measurement.edit', $measurement->id) }}">
                             Editovať
                         </a>
+
                     </td>
                 </tr>
 

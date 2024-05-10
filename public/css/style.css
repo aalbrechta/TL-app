@@ -1,0 +1,163 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f0f0f0;
+}
+
+.logo {
+    width: 60px;
+    height: 70px;
+    display: block;
+}
+
+.title {
+    margin: 0;
+    font-size: 22px;
+}
+
+.link {
+    margin-left: 20px;
+    margin-right: 20px;
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+
+}
+
+.link:hover {
+    color: #007bff;
+}
+
+footer {
+    background-color: #f0f0f0;
+    color: #333;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-style: italic;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px;
+
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+
+
+.form-header {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+    text-align: center;
+}
+
+.form-section {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-size: 16px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #436e94;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.form-title{
+    margin: 0;
+    font-size: 22px;
+}
+
+table {
+    margin: 0 auto;
+    padding: 30px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* Formátovanie pre hlavičku tabuľky */
+th {
+    background-color: #f5bfaf;
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Formátovanie pre riadky tabuľky */
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+/* Párové riadky tabuľky môžete zvýrazniť */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.flex{
+    display: flex;
+}
+
+.link-edit{
+    margin-left: 20px;
+    margin-right: 20px;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.link-edit:hover {
+    color: #007bff;
+}
+
+.del-btn{
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.del-btn:hover{
+    background-color: #c82333;
+}
