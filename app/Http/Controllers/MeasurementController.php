@@ -6,7 +6,8 @@ use App\Models\Measurement;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
-
+use App\Http\Requests\Measurement\UpdateRequest;
+use App\Http\Requests\Measurement\StoreRequest;
 class MeasurementController extends Controller
 {
     /**
@@ -32,12 +33,6 @@ class MeasurementController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-
-        $request->validate([
-            'lake' => 'required|string|max:255',
-            'description' => 'required|string',
-            'temperature' => 'required|numeric',
-        ]);
 
         $data = request()->except(['_token']);
         Measurement::create($data);
@@ -67,18 +62,12 @@ class MeasurementController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id): RedirectResponse
+    public function update(Request $request, Measurement $measurement): RedirectResponse
     {
-        $request->validate([
-            'lake' => 'required|string|max:255',
-            'description' => 'required|string',
-            'temperature' => 'required|numeric',
-        ]);
+        $data = request()->except(['_token']);
+        $measurement->update($data);
 
-        $measurement = Measurement::findOrFail($id);
-        $measurement->update($request->all());
-
-        return redirect()->route('/');
+        return redirect()->route('Measurement.index');
     }
 
     /**

@@ -14,11 +14,11 @@
 <body>
 <div>
     <header>
-        <img src="{{ asset('images/lake.png') }}" alt="icon" style="width: 60px; height: 70px;">
+        <a href="{{ route('Measurement.index') }}"><img src="{{ asset('images/lake.png') }}" alt="icon" style="width: 60px; height: 70px;"></a>
         <h4> Záznamy merania teplôt jazier</h4>
 
         <a href="{{ route('Measurement.create') }}">Pridať záznam</a>
-        <a href="{{ route('Measurement.show') }}">Admin</a>
+        <a href="{{ route('measurement.show', $measurement->id) }}">Admin</a>
     </header>
 
     @if ($errors->any())

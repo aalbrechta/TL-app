@@ -25,9 +25,13 @@
                         <form action="{{ route('measurement.destroy', $measurement->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <!-- Ďalšie prvky formulára -->
                             <button type="submit">Odstrániť</button>
                         </form>
+                    </td>
+                    <td>
+                        <a href="{{ route('measurement.edit', $measurement->id) }}">
+                            Editovať
+                        </a>
                     </td>
                 </tr>
 
